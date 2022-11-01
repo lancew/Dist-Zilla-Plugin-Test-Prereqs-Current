@@ -2,17 +2,22 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::Test::Prereqs::Current;
 
- # ABSTRACT: Tests your module has up to date dependencies
+# ABSTRACT: Tests your module has up to date dependencies
+# VERSION
 
 use 5.008;
-our $VERSION = '0.01';
-
 
 use Moose;
 extends 'Dist::Zilla::Plugin::InlineFiles';
 with 'Dist::Zilla::Role::FilePruner';
 
-# Make sure we've included a META.json:
+=head2 prune_files
+
+Stub for docs
+
+=cut
+
+
 
 sub prune_files
 {
@@ -33,8 +38,6 @@ __PACKAGE__->meta->make_immutable;
 1;
 __DATA__
 ___[ t/00-all_prereqs_current.t ]___
-#!perl
-
 use strict;
 use warnings;
 
