@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-package Dist::Zilla::Plugin::Test::Prereqs::Current;
+package Dist::Zilla::Plugin::Test::Prereqs::Latest;
 
 # ABSTRACT: Tests your module has up to date dependencies
 # VERSION
@@ -18,12 +18,6 @@ with 'Dist::Zilla::Role::FilePruner';
 =head1 NAME
 
 Dist::Zilla::Plugin::Test::Prereqs::Current - Dzil plugin to check prereqs are up to date
-
-=for HTML
-<a href=https://travis-ci.org/lancew/Webservice-Judobase><img src=https://api.travis-ci.org/lancew/Webservice-Judobase.svg?branch=master></a>
-<a href=https://coveralls.io/github/lancew/Webservice-Judobase><img src=https://coveralls.io/repos/lancew/Webservice-Judobase/badge.svg?branch=master></a>
-<a href=https://metacpan.org/pod/Webservice-Judobase><img src="https://badge.fury.io/pl/Webservice-Judobase.svg"></a>
-<a href=https://github.com/lancew/Webservice-Judobase/issues><img src=https://img.shields.io/github/issues/lancew/Webservice-Judobase.svg></a>
 
 =head1 DESCRIPTION
 
@@ -48,7 +42,7 @@ Lance Wicks <lancew@cpan.org>
 
 =head1 COPYRIGHT
 
-This software is Copyright (c) 2016-2021 by Lance Wicks.
+This software is Copyright (c) 2022 by Lance Wicks.
 
 =head1 LICENSE
 
@@ -64,8 +58,8 @@ sub prune_files
   my $files = $self->zilla->files;
 
   unless (grep { $_->name eq 'dist.ini' } @$files) {
-    $self->log("WARNING: dist.ini not found, removing t/00-all_prereqs_current.t");
-    @$files = grep { $_->name ne 't/00-all_prereqs_current.t' } @$files;
+    $self->log("WARNING: dist.ini not found, removing t/00-all_prereqs_latest.t");
+    @$files = grep { $_->name ne 't/00-all_prereqs_latest.t' } @$files;
   } # end unless META.json
 
   return;
