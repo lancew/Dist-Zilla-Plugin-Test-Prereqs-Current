@@ -58,8 +58,8 @@ sub prune_files
   my $files = $self->zilla->files;
 
   unless (grep { $_->name eq 'dist.ini' } @$files) {
-    $self->log("WARNING: dist.ini not found, removing t/00-all_prereqs_latest.t");
-    @$files = grep { $_->name ne 't/00-all_prereqs_latest.t' } @$files;
+    $self->log("WARNING: dist.ini not found, removing xt/author/prereqs_latest.t");
+    @$files = grep { $_->name ne 'xt/author/prereqs_latest.t' } @$files;
   } # end unless META.json
 
   return;
@@ -69,7 +69,7 @@ no Moose;
 __PACKAGE__->meta->make_immutable;
 1;
 __DATA__
-___[ t/00-all_prereqs_current.t ]___
+___[ xt/author/prereqs_latest.t ]___
 use strict;
 use warnings;
 
